@@ -22,10 +22,10 @@ I'm Daniel Martinez and live in Mexico, I'm an mechatronical engineer, you can f
 4. Go to `Menu Bar > Multiplexer > Show command line`, and select the escaper arguments for Windows CMD, for example I had the next arguments
 `"C:/Program Files/MKVToolNix\mkvmerge.exe" --ui-language en --output ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA ^(1^).mkv^" --language 0:und --default-track 0:yes --language 1:eng --track-name 1:English --default-track 1:yes ^"^(^" ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA.mkv^" ^"^)^" --language 0:spa --track-name 0:Spanish --default-track 0:yes ^"^(^" ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA.eng.srt^" ^"^)^" --track-order 0:0,0:1,1:0`
   What I need to do
-  -Select default audio track as english
-  -Label track as english
-  -Select default subtitle, as spanish
-  -Label track subtitle as spanish
+    -Select default audio track as english
+    -Label track as english
+    -Select default subtitle, as spanish
+    -Label track subtitle as spanish
   
 5)Now, open notepad, paste the command and delete everything before `--output` 
 Replace `--output` with `-o`

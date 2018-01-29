@@ -5,7 +5,7 @@ Repository with information about adding subtitles to a video using MKVTOOLNIX
 
 ## Usage
 0. Download MKVToolNix.
-1. Edit the bat file for desired config (wiew the How to configurate the bat file section)
+1. Edit the bat file for desired config (view the How to configurate the bat file section)
 2. Move the .bat file to the folder desired to be converted.
 3. Execute .bat and wait.
 4. The converted files can be found on the `mkvmerge_out` folder
@@ -21,13 +21,9 @@ I'm Daniel Martinez and live in Mexico, I'm an mechatronical engineer, you can f
 3. Perform your changes within the GUI (disable tracks, rename tracks, set default tracks, etc.).
 4. Go to `Menu Bar > Multiplexer > Show command line`, and select the escaper arguments for Windows CMD, for example I had the next arguments
 `"C:/Program Files/MKVToolNix\mkvmerge.exe" --ui-language en --output ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA ^(1^).mkv^" --language 0:und --default-track 0:yes --language 1:eng --track-name 1:English --default-track 1:yes ^"^(^" ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA.mkv^" ^"^)^" --language 0:spa --track-name 0:Spanish --default-track 0:yes ^"^(^" ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA.eng.srt^" ^"^)^" --track-order 0:0,0:1,1:0`
-  What I need to do
-    -Select default audio track as english
-    -Label track as english
-    -Select default subtitle, as spanish
-    -Label track subtitle as spanish
+  What I need to do: 1) Select default audio track as english, 2) Label track as english, 3) Select default subtitle, as spanish, 4) Label track subtitle as spanish
   
-5)Now, open notepad, paste the command and delete everything before `--output` 
+5.Now, open notepad, paste the command and delete everything before `--output` 
 Replace `--output` with `-o`
 Replace video destination with this `"./mkvmerge_out/%%~nf.mkv"`
 
@@ -38,7 +34,7 @@ Before:
 After:
 `o "./mkvmerge_out/%%~nf.mkv" --language 0:und --default-track 0:yes --language 1:eng --track-name 1:English --default-track 1:yes ^"^(^" ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA.mkv^" ^"^)^" --language 0:spa --track-name 0:Spanish --default-track 0:yes ^"^(^" ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA.eng.srt^" ^"^)^" --track-order 0:0,0:1,1:0`
 
-6) Now replace video origin from the previous output with `%%f` 
+6. Now replace video origin from the previous output with `%%f` 
 
 Example:
 Before
@@ -47,7 +43,7 @@ Before
 After:
 `o "./mkvmerge_out/%%~nf.mkv" --language 0:und --default-track 0:yes --language 1:eng --track-name 1:English --default-track 1:yes ^"^(^" ^"%%f" ^"^)^" --language 0:spa --track-name 0:Spanish --default-track 0:yes ^"^(^" ^"E:\Videos\Series\Modern Family\Season 9\Modern Family - S09E01 - Lake Life.SDTV.SVA.eng.srt^" ^"^)^" --track-order 0:0,0:1,1:0`
 
-7) Now replace the subtitle origin from the previous output with `%%~nf.srt`
+7. Now replace the subtitle origin from the previous output with `%%~nf.srt`
 WARNING: THIS COMMAND IS NOT PERFECT AS ONLY WORKS FOR ONE SUBTITLE EXTENSION AT TIME.
 For use with your subtitles you must do the next.
     something.srt - `%%~nf.srt`
@@ -64,7 +60,7 @@ After:
 
 The finnal command line should look like this `o "./mkvmerge_out/%%~nf.mkv" --language 0:und --default-track 0:yes --language 1:eng --track-name 1:English --default-track 1:yes ^"^(^" ^"%%f" ^"^)^" --language 0:spa --track-name 0:Spanish --default-track 0:yes ^"^(^" ^"%%~nf.spa.srt^" ^"^)^" --track-order 0:0,0:1,1:0`
 
-8) Preparing the batch file
+8. Preparing the batch file
 On another notepad you must enter this code, replacing the route of your MKVTOOLNIX installation:
   `@echo off
   set mkvmerge="C:\Program Files\MKVToolNix\mkvmerge.exe"
@@ -83,8 +79,8 @@ On another notepad you must enter this code, replacing the route of your MKVTOOL
   @echo off
   @for %%f in (*.mp4 *.mkv *.avi) do %mkvmerge% -o "./mkvmerge_out/%%~nf.mkv" --language 0:und --default-track 0:yes --language 1:eng --track-name 1:English --default-track 1:yes ^"^(^" ^"%%f" ^"^)^" --language 0:spa --track-name 0:Spanish --default-track 0:yes ^"^(^" ^"%%~nf.spa.srt^" ^"^)^" --track-order 0:0,0:1,1:0`
   
-9) Save the file as .bat, and copy it to your desired video folder.
-10) Workarround for the different subtitles extensions
+9. Save the file as .bat, and copy it to your desired video folder.
+10. Workarround for the different subtitles extensions
 If the subtitle extension is not found the script don't execute, so, I ran the file with different settings for the different subtitles.
 You can see the bat file in `SubsSpanish` in this repository
 So, my bat file is 
